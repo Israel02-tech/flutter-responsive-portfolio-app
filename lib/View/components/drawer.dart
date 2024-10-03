@@ -9,7 +9,7 @@ class MyDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FractionallySizedBox(
-      widthFactor: 0.6, // Sets the drawer to be 50% of the screen width
+      widthFactor: 0.6, // Sets the drawer to be 60% of the screen width
       child: Drawer(
         // Using Drawer widget
         child: Column(

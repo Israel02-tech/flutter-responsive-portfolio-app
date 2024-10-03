@@ -27,10 +27,19 @@ class TopBar extends StatelessWidget {
     // wehave perfrom this operation later
     return [
       Padding(
-        padding:
-            EdgeInsets.symmetric(horizontal: 10, vertical: isMobile ? 20 : 0),
+        padding: EdgeInsets.symmetric(
+          horizontal: 10,
+          vertical: isMobile ? 20 : 0,
+        ),
         child: TextButton(
-          onPressed: () {},
+          onPressed: () {
+            if (isMobile) Navigator.pop(context);
+            scrollController.animateTo(
+              200, // Scroll to this position (in pixels)
+              duration: Duration(milliseconds: scrollDuration),
+              curve: Curves.easeInOut,
+            );
+          },
           child: const Text(
             "About",
             style: TextStyle(
@@ -45,7 +54,16 @@ class TopBar extends StatelessWidget {
         padding:
             EdgeInsets.symmetric(horizontal: 10, vertical: isMobile ? 20 : 0),
         child: TextButton(
-          onPressed: () {},
+          onPressed: () {
+            if (isMobile) Navigator.pop(context);
+            scrollController.animateTo(
+              isMobile
+                  ? 1050
+                  : 1000, // Scroll to this position (in pixels), 1050 for mobile and 1100 for desktop
+              duration: Duration(milliseconds: scrollDuration),
+              curve: Curves.easeInOut,
+            );
+          },
           child: const Text(
             "Skill",
             style: TextStyle(
@@ -60,7 +78,14 @@ class TopBar extends StatelessWidget {
         padding:
             EdgeInsets.symmetric(horizontal: 10, vertical: isMobile ? 20 : 0),
         child: TextButton(
-          onPressed: () {},
+          onPressed: () {
+            if (isMobile) Navigator.pop(context);
+            scrollController.animateTo(
+              isMobile ? 1330 : 1200, // Scroll to this position (in pixels)
+              duration: Duration(milliseconds: scrollDuration),
+              curve: Curves.easeInOut,
+            );
+          },
           child: const Text(
             "Project",
             style: TextStyle(
@@ -75,7 +100,14 @@ class TopBar extends StatelessWidget {
         padding:
             EdgeInsets.symmetric(horizontal: 10, vertical: isMobile ? 20 : 0),
         child: TextButton(
-          onPressed: () {},
+          onPressed: () {
+            if (isMobile) Navigator.pop(context);
+            scrollController.animateTo(
+              isMobile ? 3835 : 2280, // Scroll to this position (in pixels)
+              duration: Duration(milliseconds: scrollDuration),
+              curve: Curves.easeInOut,
+            );
+          },
           child: const Text(
             "Contact",
             style: TextStyle(
@@ -89,3 +121,9 @@ class TopBar extends StatelessWidget {
     ];
   }
 }
+// Each button in the TopBar or drawer is linked to a different section by using different values for the animateTo() method:
+
+// "About" button scrolls to position 200.
+// "Skill" button scrolls to position 1050 (mobile) or 1100 (desktop).
+// "Project" button scrolls to position 1450 (mobile) or 1750 (desktop).
+// "Contact" button scrolls to position 3950 (mobile) or 2750 (desktop).
